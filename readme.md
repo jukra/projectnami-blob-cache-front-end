@@ -16,3 +16,4 @@ Project Nami Blob Cache -- Installation
 9)	Enter the values for your Blob Account and set the Time To Live for cached pages
 10)	Build this project, then create a Bin folder at the root of your site and upload the two DLL files produced by the build into the Bin folder.
 11)	Copy the provided web.config file into the root of your site, or if you already have a web.config file instead merge the contents into your existing file.
+
