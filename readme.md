@@ -12,7 +12,7 @@ Project Nami Blob Cache -- Installation
 	
 	ProjectNamiBlobCache.StorageKey			<your storage account Primary Access Key>
 	
-	ProjectNamiBlobCache.StorageConainer	<your cache container in your storage account>
+	ProjectNamiBlobCache.StorageContainer	<your cache container in your storage account>
 	
 	ProjectNamiBlobCache.Proactive			<set to 1 to enable Proactive mode, otherwise set to 0>
 	
