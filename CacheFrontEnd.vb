@@ -40,9 +40,15 @@ Public Class CacheFrontEnd
         If app.Context.Request.Url.GetLeftPart(UriPartial.Path).EndsWith(".php") Then
             'Construct URL in the same manner as the Project Nami (WordPress) Plugin
             Dim URL As String = ""
-            URL = "http://" & app.Context.Request.ServerVariables("HTTP_HOST") & app.Context.Request.ServerVariables("REQUEST_URI")
+            Dim scheme As String = ""
+            If app.Context.Request.IsSecureConnection Then
+                scheme = "https://"
+            Else
+                scheme = "http://"
+            End If
+            URL = scheme & app.Context.Request.ServerVariables("HTTP_HOST") & app.Context.Request.ServerVariables("REQUEST_URI")
             Dim NewURI As New Uri(URL)
-            URL = NewURI.GetLeftPart(UriPartial.Query).Replace("http://", "").Replace("https://", "")
+            URL = NewURI.GetLeftPart(UriPartial.Query)
 
             'Determine if the User Agent is available
             If Not IsNothing(app.Context.Request.ServerVariables("HTTP_USER_AGENT")) Then
