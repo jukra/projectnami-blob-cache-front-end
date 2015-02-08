@@ -147,6 +147,8 @@ Public Class CacheFrontEnd
                 app.Context.Response.Write(CacheString)
                 If app.Context.Request.ServerVariables("REQUEST_URI").ToLower.EndsWith(".xml") Or CacheString.ToLower.StartsWith("<?xml") Then
                     app.Context.Response.ContentType = "application/xml"
+                ElseIf app.Context.Request.ServerVariables("REQUEST_URI").ToLower.EndsWith(".json") Or (CacheString.ToLower.StartsWith("{") And CacheString.ToLower.EndsWith("}")) Then
+                    app.Context.Response.ContentType = "application/json"
                 Else
                     app.Context.Response.ContentType = "text/html"
                 End If
